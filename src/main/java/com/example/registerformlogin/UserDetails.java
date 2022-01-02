@@ -2,12 +2,12 @@ package com.example.registerformlogin;
 
 import java.util.Collection;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 class CustomUserDetails implements UserDetails
-{
-
+    {
     private User user;
 
     public CustomUserDetails(User user) {
@@ -45,8 +45,10 @@ class CustomUserDetails implements UserDetails
     }
 
     @Override
-    public boolean isEnabled() {
-        return true;
+    public boolean isEnabled()
+    {
+        // Change for the verificationCode
+        return user.isEnabled();
     }
 
     public String getFullName() {
